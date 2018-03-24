@@ -5,15 +5,16 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Repository
 public class UsersDatabaseImitation {
     private static List<User> listOfUsers = new ArrayList<>();
 
     static {
-        listOfUsers.add(new User("Mila Bezaliuc", "endava"));
-        listOfUsers.add(new User("Petru Covaliov", "endava"));
-        listOfUsers.add(new User("Maxim Ustimov", "endava"));
+        listOfUsers.add(new User("Mila Bezaliuc", "endava", "Female"));
+        listOfUsers.add(new User("Petru Covaliov", "endava", "Male"));
+        listOfUsers.add(new User("Maxim Ustimov", "endava", "Male"));
     }
 
     public static List<User> getListOfUsers() {
@@ -22,5 +23,13 @@ public class UsersDatabaseImitation {
 
     public static void setListOfUsers(List<User> listOfUsers) {
         UsersDatabaseImitation.listOfUsers = listOfUsers;
+    }
+
+    public static List<User> getListOfMaleUsers() {
+        return listOfUsers.stream().filter(User::isMale).collect(Collectors.toList());
+    }
+
+    public static List<User> getListOfFemaleUsers() {
+        return listOfUsers.stream().filter(user -> !user.isMale()).collect(Collectors.toList());
     }
 }

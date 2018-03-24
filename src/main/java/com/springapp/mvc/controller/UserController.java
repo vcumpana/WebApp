@@ -38,4 +38,16 @@ public class UserController {
 		model.addAttribute("users", userService.getAllUsers());
 		return "welcome";
 	}
+
+	@RequestMapping(value = "/allfemaleusers", method = RequestMethod.GET)
+	public String showAllFemaleUsers(ModelMap model) {
+		model.addAttribute("users", userService.getAllFemaleUsers());
+		return "welcome";
+	}
+
+	@RequestMapping(value = "/allmaleusers", method = RequestMethod.GET)
+	public String showAllMaleUsers(ModelMap model) {
+		model.addAttribute("users", userService.getAllMaleUsers());
+		return "welcome";
+	}
 }

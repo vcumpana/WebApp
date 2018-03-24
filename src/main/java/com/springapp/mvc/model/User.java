@@ -3,13 +3,19 @@ package com.springapp.mvc.model;
 public class User {
     private String name;
     private String password;
+    private String gender;
 
-    public User(String name, String password) {
+
+
+    public User(String name, String password, String gender) {
         this.name = name;
         this.password = password;
+        this.gender = gender;
     }
 
     public User(){}
+
+    public boolean isMale(){ return gender == "Male"; }
 
     public String getName() {
         return name;
@@ -27,6 +33,10 @@ public class User {
         this.password = password;
     }
 
+    public String getGender(){ return gender;}
+
+    public void setGender(String gender) { this.gender = gender; }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -35,6 +45,7 @@ public class User {
         User that = (User) o;
 
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
+        if (gender != null ? !gender.equals(that.gender) : that.gender != null) return false;
         return !(password != null ? !password.equals(that.password) : that.password != null);
 
     }
@@ -51,6 +62,7 @@ public class User {
         return "User{" +
                 "name='" + name + '\'' +
                 ", password='" + password + '\'' +
+                ", gender='" + gender + '\'' +
                 '}';
     }
 }
