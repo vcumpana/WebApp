@@ -15,8 +15,8 @@
 <c:forEach items="${users}" var="user">
     <p>Name: ${user.name} | Password: ${user.password}</p>
 </c:forEach>
-<a href="/allusers">Show all users</a> <br>
-<a href="/allfemaleusers">Show all female users</a> <br>
-<a href="/allmaleusers">Show all male users</a>
+<a href="${pageContext.request.contextPath}/allusers">Show all users</a> <br>
+<a href="${pageContext.request.contextPath}/allusers/female">Show all female users</a> <br>
+<a href="${pageContext.request.contextPath}/allusers/male">Show all male users</a>
 </body>
 </html>

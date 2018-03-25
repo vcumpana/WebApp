@@ -15,6 +15,12 @@ public class UsersDatabaseImitation {
         listOfUsers.add(new User("Mila Bezaliuc", "endava", "Female"));
         listOfUsers.add(new User("Petru Covaliov", "endava", "Male"));
         listOfUsers.add(new User("Maxim Ustimov", "endava", "Male"));
+        listOfUsers.add(new User("Ion Sandul", "endava", "Male"));
+        listOfUsers.add(new User("Ivan Sirosenco", "endava", "Male"));
+        listOfUsers.add(new User("Iulia Muraseva", "endava", "Female"));
+        listOfUsers.add(new User("Elvira Parpalac", "endava", "Female"));
+        listOfUsers.add(new User("Iuliana Corotcova", "endava", "Female"));
+        listOfUsers.add(new User("Egor Guzun", "endava", "Male"));
     }
 
     public static List<User> getListOfUsers() {

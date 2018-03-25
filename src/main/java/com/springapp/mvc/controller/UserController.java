@@ -39,13 +39,13 @@ public class UserController {
 		return "welcome";
 	}
 
-	@RequestMapping(value = "/allfemaleusers", method = RequestMethod.GET)
+	@RequestMapping(value = "/allusers/female", method = RequestMethod.GET)
 	public String showAllFemaleUsers(ModelMap model) {
 		model.addAttribute("users", userService.getAllFemaleUsers());
 		return "welcome";
 	}
 
-	@RequestMapping(value = "/allmaleusers", method = RequestMethod.GET)
+	@RequestMapping(value = "/allusers/male", method = RequestMethod.GET)
 	public String showAllMaleUsers(ModelMap model) {
 		model.addAttribute("users", userService.getAllMaleUsers());
 		return "welcome";
