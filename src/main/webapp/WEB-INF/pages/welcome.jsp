@@ -11,12 +11,12 @@
 <body>
 <h1>Hi, Welcome to our super-puper secret page!</h1>
 <br>
-<h2>Here are all our users:</h2>
+<h2>Here are all our ${gender} users:</h2>
 <c:forEach items="${users}" var="user">
     <p>Name: ${user.name} | Password: ${user.password}</p>
 </c:forEach>
 <a href="${pageContext.request.contextPath}/allusers">Show all users</a> <br>
-<a href="${pageContext.request.contextPath}/allusers/female">Show all female users</a> <br>
-<a href="${pageContext.request.contextPath}/allusers/male">Show all male users</a>
+<a href="${pageContext.request.contextPath}/allusers/FEMALE">Show all female users</a> <br>
+<a href="${pageContext.request.contextPath}/allusers/MALE">Show all male users</a>
 </body>
 </html>

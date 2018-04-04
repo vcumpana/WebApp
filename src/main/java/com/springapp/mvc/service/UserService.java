@@ -1,6 +1,7 @@
 package com.springapp.mvc.service;
 
 import com.springapp.mvc.datasource.UsersDatabaseImitation;
+import com.springapp.mvc.model.Gender;
 import com.springapp.mvc.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,7 +24,8 @@ public class UserService {
     public List<User> getAllUsers() {
         return UsersDatabaseImitation.getListOfUsers();
     }
-    public List<User> getAllMaleUsers() { return UsersDatabaseImitation.getListOfMaleUsers();}
-    public List<User> getAllFemaleUsers() { return UsersDatabaseImitation.getListOfFemaleUsers();}
 
+    public List<User> getAllUsersByGender(Gender gender) {
+        return UsersDatabaseImitation.getListOfUsersByGender(gender);
+    }
 }

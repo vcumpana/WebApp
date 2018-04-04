@@ -1,5 +1,6 @@
 package com.springapp.mvc.controller;
 
+import com.springapp.mvc.model.Gender;
 import com.springapp.mvc.model.User;
 import com.springapp.mvc.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -33,21 +35,17 @@ public class UserController {
 		}
 	}
 
-	@RequestMapping(value = "/allusers", method = RequestMethod.GET)
-	public String showAllUsers(ModelMap model) {
-		model.addAttribute("users", userService.getAllUsers());
-		return "welcome";
-	}
+    @RequestMapping(value = "/allusers", method = RequestMethod.GET)
+    public String showAllUsers(ModelMap model) {
+        model.addAttribute("users", userService.getAllUsers());
+        model.addAttribute("gender", "");
+        return "welcome";
+    }
 
-	@RequestMapping(value = "/allusers/female", method = RequestMethod.GET)
-	public String showAllFemaleUsers(ModelMap model) {
-		model.addAttribute("users", userService.getAllFemaleUsers());
-		return "welcome";
-	}
-
-	@RequestMapping(value = "/allusers/male", method = RequestMethod.GET)
-	public String showAllMaleUsers(ModelMap model) {
-		model.addAttribute("users", userService.getAllMaleUsers());
+	@RequestMapping(value = "/allusers/{gender}", method = RequestMethod.GET)
+	public String showAllUsers(ModelMap model, @PathVariable Gender gender ) {
+		model.addAttribute("users", userService.getAllUsersByGender(gender));
+		model.addAttribute("gender", gender.name().toLowerCase());
 		return "welcome";
 	}
 }
